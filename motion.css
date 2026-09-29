@@ -1,0 +1,27 @@
+/* v1.1 replaces the v1.0 generic animation rules. */
+.hero-copy,.hero-slide.active,.opening,.opening path,.reveal.seen,.about.seen .about-picture,.about.seen h2{animation:none}
+.motion-char{display:inline-block}
+.wordmark{overflow:hidden}
+.hero-copy .vertical .motion-char,.section-heading h2 .motion-char{display:inline-block}
+.crossfade{display:grid}
+.crossfade .hero-slide{grid-area:1/1;opacity:0;visibility:visible;pointer-events:none;transition:opacity .4s cubic-bezier(.25,1,.5,1)}
+.crossfade .hero-slide.active{opacity:1;pointer-events:auto;z-index:1}
+.progress-ring{position:absolute;inset:8px;width:28px;height:28px;transform:rotate(-90deg)}
+.progress-ring circle{fill:none;stroke:var(--ink);stroke-width:.7;stroke-dasharray:1;stroke-dashoffset:1}
+.dot.active::after{display:none}
+.opening{clip-path:circle(150% at 50% 50%)}
+.opening-emblem{position:relative;width:clamp(200px,28vw,400px);aspect-ratio:1}
+.opening-emblem i{position:absolute;inset:1.5%;border-radius:50%;background:var(--ink)}
+.opening-emblem svg{position:absolute;inset:0;width:100%;height:100%}
+.opening-emblem path{fill:none;stroke:var(--paper);stroke-width:1;stroke-dasharray:1;stroke-dashoffset:1}
+.about h2 .ink-char{width:1em;height:1.5em;vertical-align:top;letter-spacing:0;position:relative}
+.ink-char svg{display:block;width:100%;height:100%;overflow:visible}
+.ink-char text{font-family:var(--serif);font-weight:400;fill:var(--ink);stroke:var(--ink);stroke-width:.45;stroke-dasharray:300;stroke-dashoffset:0}
+.ink-ready .ink-char text{fill:transparent;stroke-dashoffset:300}
+.care-birds{position:absolute;right:30%;top:17%;width:17%;pointer-events:none;z-index:0}
+.care-birds svg{width:100%;overflow:visible;fill:var(--paper);stroke:none}
+.care-birds svg path+path{fill:var(--ink)}
+@media(min-width:768px){.about-picture{width:61.8vw;height:54vw}.care-birds{right:32%;top:28%}}
+@media(max-width:767px){.opening-emblem{width:200px}.progress-ring{inset:7px;width:26px;height:26px}.care-birds{top:9%;right:45%;width:23%}}
+@media(prefers-reduced-motion:reduce){.motion-char,.care-birds{opacity:1!important;transform:none!important}.ink-char text{fill:var(--ink)!important;stroke-dashoffset:0!important}.opening{display:none!important}.crossfade .hero-slide{transition:none}}
+
